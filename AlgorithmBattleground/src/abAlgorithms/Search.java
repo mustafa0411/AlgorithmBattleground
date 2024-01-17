@@ -2,13 +2,13 @@ package abAlgorithms;
 
 import java.util.List;
 
-import abDataHandelers.Signal;
 import abExceptions.NullArgumentException;
 
 /**
  * This class stores the search algorithms of each type. Linear, recursive and
  * iterative binary search.
- * 
+ * Project Finished
+ *
  * @author Mustafa Al-Shebeeb
  * @version 1.0
  * @since 2023-02-24
@@ -21,15 +21,16 @@ public class Search {
 	 * Starting at the beginning of the data set, each item of data is examined
 	 * until a match is made. Once the item is found, the search ends. If there is
 	 * no match, the algorithm must deal with this.
-	 * 
+	 *
 	 * @param target paramter is the target value bieng searched for input is the
 	 *               list being searched through
 	 * @return i is the index that returns the position
 	 */
 	public static <T extends Comparable<T>> int linearSearch1(T target, List<T> input) throws NullArgumentException {
 		// throws nullarg exception
-		if (target == null || input == null)
+		if (target == null || input == null) {
 			throw new NullArgumentException();
+		}
 		// for loop that searches through list one by one
 		for (int i = 0; i < input.size(); i++) {
 			if (input.get(i).compareTo(target) == 0) {
@@ -38,7 +39,7 @@ public class Search {
 			}
 		}
 		return -1;
-		
+
 
 	}
 
@@ -47,7 +48,7 @@ public class Search {
 	 * target value. If the target value is equal to the middle element, its
 	 * position in the array is returned. This is an iterative version of the binary
 	 * search so the space complexity is O(1)
-	 * 
+	 *
 	 * @param target paramter is the target value bieng searched for input is the
 	 *               list being searched through
 	 * @return middle is the middle of the list bieng searched
@@ -55,8 +56,9 @@ public class Search {
 	public static <E extends Comparable<E>> int iterativeBinarySearch1(E target, List<E> input)
 			throws NullArgumentException {
 
-		if (target == null || input == null)
+		if (target == null || input == null) {
 			throw new NullArgumentException();
+		}
 		// end and start variable for higher and lower bounds
 		int start = 0;
 		int end = input.size() - 1;
@@ -84,7 +86,7 @@ public class Search {
 	/**
 	 * This method is used for calling the recursive binary search below it and also
 	 * throws null argument exception if it is required to do so
-	 * 
+	 *
 	 * @param target paramter is the target value bieng searched for input is the
 	 *               list being searched through
 	 * @return returns a call to the recursive binary search method
@@ -92,8 +94,9 @@ public class Search {
 	public static <E extends Comparable<E>> int recursiveBinarySearch1(E target, List<E> input)
 			throws NullArgumentException {
 		// throws null argument exception
-		if (target == null || input == null)
+		if (target == null || input == null) {
 			throw new NullArgumentException();
+		}
 		// returns a method call
 		return doRecursiveBinarySearch1(target, input, 0, input.size() - 1);
 
@@ -104,7 +107,7 @@ public class Search {
 	 * target value. If the target value is equal to the middle element, its
 	 * position in the array is returned. This is an recursive version of the binary
 	 * search so the space complexity is O(log N)
-	 * 
+	 *
 	 * @param target paramter is the target value bieng searched for input is the
 	 *               list being searched through. low is the lower bound of the list
 	 *               high is the higher bound of the list
@@ -136,8 +139,9 @@ public class Search {
 
 	public static <T extends Comparable<T>> int linearSearch(T key, List<T> list) throws NullArgumentException {
 		// TODO Auto-generated method stub
-		if (key == null || list == null)
+		if (key == null || list == null) {
 			throw new NullArgumentException();
+		}
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i).equals(key)) {
 				return i;
@@ -149,8 +153,9 @@ public class Search {
 
 	public static <E extends Comparable<E>> int iterativeBinarySearch(E key, List<E> list) throws NullArgumentException {
 		// TODO Auto-generated method stub
-		if (key == null || list == null)
+		if (key == null || list == null) {
 			throw new NullArgumentException();
+		}
 		int low = 0;
 		int high = list.size() - 1;
 		while (low <= high) {
@@ -168,8 +173,9 @@ public class Search {
 	}
 
 	public static <E extends Comparable<E>> int recursiveBinarySearch(E searchSignal, List<E> list) throws NullArgumentException {
-		if (searchSignal == null || list == null)
+		if (searchSignal == null || list == null) {
 			throw new NullArgumentException();
+		}
 		return recursiveBinarySearch(searchSignal,list, 0, list.size() - 1);
 	}
 

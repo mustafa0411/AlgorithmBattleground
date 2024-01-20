@@ -137,6 +137,17 @@ public class Search {
 
 	}
 
+
+	/**
+	 * Generic linear search algorithm that searches for a target key in the given list.
+	 * Starting at the beginning of the list, each element is examined until a match is found.
+	 * If a match is found, the index of the element is returned. If no match is found, -1 is returned.
+	 *
+	 * @param key The target key being searched for.
+	 * @param list The list being searched through.
+	 * @return The index of the target key if found, otherwise -1.
+	 * @throws NullArgumentException If the target key or the list is null.
+	 */
 	public static <T extends Comparable<T>> int linearSearch(T key, List<T> list) throws NullArgumentException {
 		// TODO Auto-generated method stub
 		if (key == null || list == null) {
@@ -151,6 +162,17 @@ public class Search {
 
 	}
 
+
+	/**
+	 * Iterative binary search algorithm that searches for a target key in the given sorted list.
+	 * It compares the middle element of the list to the target value, updating the search bounds accordingly.
+	 * If the target key is found, the index is returned. If not found, -1 is returned.
+	 *
+	 * @param key The target key being searched for.
+	 * @param list The sorted list being searched through.
+	 * @return The index of the target key if found, otherwise -1.
+	 * @throws NullArgumentException If the target key or the list is null.
+	 */
 	public static <E extends Comparable<E>> int iterativeBinarySearch(E key, List<E> list) throws NullArgumentException {
 		// TODO Auto-generated method stub
 		if (key == null || list == null) {
@@ -172,6 +194,16 @@ public class Search {
 
 	}
 
+
+	/**
+	 * Recursive binary search algorithm that searches for a target key in the given sorted list.
+	 * It uses recursion to divide the list into halves until the target key is found or the search bounds are exhausted.
+	 *
+	 * @param searchSignal The target key being searched for.
+	 * @param list The sorted list being searched through.
+	 * @return The index of the target key if found, otherwise -1.
+	 * @throws NullArgumentException If the target key or the list is null.
+	 */
 	public static <E extends Comparable<E>> int recursiveBinarySearch(E searchSignal, List<E> list) throws NullArgumentException {
 		if (searchSignal == null || list == null) {
 			throw new NullArgumentException();
@@ -179,6 +211,16 @@ public class Search {
 		return recursiveBinarySearch(searchSignal,list, 0, list.size() - 1);
 	}
 
+	/**
+	 * Recursive helper method for the binary search algorithm.
+	 * It searches for the target key in the specified range of the given sorted list using recursion.
+	 *
+	 * @param searchSignal The target key being searched for.
+	 * @param list The sorted list being searched through.
+	 * @param left The left bound of the current search range.
+	 * @param right The right bound of the current search range.
+	 * @return The index of the target key if found, otherwise -1.
+	 */
 	private static <E extends Comparable<E>> int recursiveBinarySearch(E searchSignal, List<E> list, int left, int right) {
 		if (left > right) {
 			return -1; // element not found

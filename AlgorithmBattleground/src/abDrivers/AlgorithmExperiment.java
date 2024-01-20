@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Random;
 
 import abDataHandelers.ReadSignals;
-import abDataHandelers.Results;
 import abDataHandelers.Signal;
 import abExceptions.InvalidArgumentException;
 import abExceptions.NullArgumentException;
@@ -53,7 +52,7 @@ public class AlgorithmExperiment {
 			// Read signals from file
 			// Uses the singal reading file from a different class.
 			List<Signal> signals = ReadSignals
-					.readSignalsFromFile("C:\\Users\\musta\\Documents\\eclipse-workspace1\\AlgorithmBattleground\\palfa2.txt");
+					.readSignalsFromFile("C:\\Users\\musta\\git\\AlgoBattle\\AlgorithmBattleground\\palfa2.txt");
 			// Initialize random number generator
 			Random rand = new Random();
 			// initialize a map for the average times
@@ -63,13 +62,14 @@ public class AlgorithmExperiment {
 			// Calls the method to write the results to a csv file.
 			// Since this project will run twice for ascending and descending, we will need
 			// two results files
-			Results.resultsToCSV(results, "results.csv");
+			//Results.resultsToCSV(results, "results.csv");
 
 			// Run sorting experiments and store average times in map
 			SortingExperiments.runSortingExperiments(signals, rand, averageTimes);
 			// Run searching experiments and store average times in map
 			SearchingExperiments.runSearchingExperiments(signals, rand, averageTimes);
 
+			// Error checking
 		} catch (FileNotFoundException e) {
 			System.err.println("Input file not found: " + e.getMessage());
 		} catch (IllegalArgumentException e) {
